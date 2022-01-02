@@ -22,12 +22,32 @@ public class konversiController {
     @ResponseBody
     public String getFahreinheit(HttpServletRequest data, Model model){
         
-        int getFahreinheit = Integer.parseInt(data.getParameter("suhu"));
+        int getSuhu = Integer.parseInt(data.getParameter("suhu"));
+        int get = Integer.parseInt(data.getParameter("data"));
         
-        double compute = computeData.celciusToFahrenheit(getFahreinheit);
+        double celciusTo_Fahre = computeData.celciusToFahrenheit(getSuhu);
+        double fahreTo_Celcius = computeData.fahreinheitToCelcius(get);
         
-        return "Celcius = " + getFahreinheit + "<p>" +
-                "Convert Fahreinheit = " + compute;
+        return "Celcius = " + getSuhu + " C" + "<p>" +
+                "Convert Fahreinheit = " + celciusTo_Fahre + " F" + "<p>" + "<hr>" +
+                "Fahreinhet = " + get + " F" + "<p>" +
+                "Convert Celcius = " + fahreTo_Celcius + " C";
+    }
+    
+    @RequestMapping("/reamur")
+    @ResponseBody
+    public String getReamur(HttpServletRequest data, Model model){
+        
+        int getReamur = Integer.parseInt(data.getParameter("suhu"));
+        int get = Integer.parseInt(data.getParameter("data"));
+        
+        double compute = computeData.celciusToReamur(getReamur);
+        double compute2 = computeData.reamurToCelcius(get);
+        
+        return "Celcius = " + getReamur + " C" + "<p>" +
+                "Convert Reamur = " + compute + " R" + "<hr><p>" +
+                "Reamur = " + get + " R" + "<p>" +
+                "Convert Celcius = " + compute2 + " C";
     }
     
     @RequestMapping("/kelvin")
@@ -42,31 +62,28 @@ public class konversiController {
                 "Convert Kelvin = " + compute;
     }
     
-    @RequestMapping("/reamur")
-    @ResponseBody
-    public String getReamur(HttpServletRequest data, Model model){
-        
-        int getReamur = Integer.parseInt(data.getParameter("suhu"));
-        
-        double compute = computeData.celciusToReamur(getReamur);
-        
-        return "Celcius = " + getReamur + "<p>" +
-                "Convert Kelvin = " + compute;
-    }
-    
-        @RequestMapping("/suhu")
+    @RequestMapping("/suhu")
     @ResponseBody
     public String getSuhu(HttpServletRequest data, Model model){
         
         int getdata = Integer.parseInt(data.getParameter("suhu"));
         
-        double fahre = computeData.celciusToFahrenheit(getdata);
-        double reamur = computeData.celciusToReamur(getdata);
-        double kelvin = computeData.celciusToKelvin(getdata);
+        // Bagian Celcius
+        double celciusTo_Fahre = computeData.celciusToFahrenheit(getdata);
+        double celciusTo_Reamur = computeData.celciusToReamur(getdata);
+        double celciusTo_Kelvin = computeData.celciusToKelvin(getdata);
         
-        return "Celcius = " + getdata + " C" + "<p>" +
-                "Convert Fahrenheit = " + fahre+ " F" + "<p>" +
-                "Convert Reamur = " + reamur + " R" + "<p>" + 
-                "Convert Kelvin = " + kelvin + " K";
+        // Bagian Fahreinheit
+        double fahreTo_Celcius = computeData.fahreinheitToCelcius(getdata);
+        double fahreTo_Reamur = computeData.fahreinheitToReamur(getdata);
+        
+        
+        return "Suhu Awal = " + getdata + "<p>" + "<hr>" + "<b>Dari Celcius Ke</b>" + "<p>" +
+                "Convert Fahrenheit = " + celciusTo_Fahre+ " F" + "<p>" +
+                "Convert Reamur = " + celciusTo_Reamur + " R" + "<p>" + 
+                "Convert Kelvin = " + celciusTo_Kelvin + " K"+ "<p>" + "<hr>" +
+                "<b>Dari Fahreinheit Ke -</b>" + "<p>" +
+                "Convert Celcius = " + fahreTo_Celcius + " C" + "<p>" +
+                "Convert Reamur = " + fahreTo_Reamur + " R";
     }
 }

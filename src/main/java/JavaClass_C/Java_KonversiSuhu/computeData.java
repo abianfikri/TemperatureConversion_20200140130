@@ -10,6 +10,8 @@ package JavaClass_C.Java_KonversiSuhu;
  * @author Abian
  */
 public class computeData {
+    
+    // Tim Celcius
     public static double celciusToFahrenheit(double value){
         return ((9 * value) / 5) + 32;
     }
@@ -19,4 +21,19 @@ public class computeData {
     public static double celciusToKelvin(double value){
         return value + 273;
     }
+    
+    // Tim Fahreinheit
+    public static double fahreinheitToCelcius(double value){
+        return 0.5555 * (value-32); // 5/9
+    }
+    public static double fahreinheitToReamur(double value){
+        return 0.4444 * (value-32); // 4/9
+    }
+    
+    // Tim Reamur
+    public static double reamurToCelcius(double value){
+        return (5*value)/4;
+    }
+    
+    
 }
