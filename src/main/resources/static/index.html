@@ -13,46 +13,65 @@ and open the template in the editor.
     <body>
         <h1>Konversi Suhu</h1>
         
+        <a href="/Suhu1">celciusToFahreinheit</a><br>
+        <a href="/Suhu2">celciusToReamur</a><br>  
+        <a href="/Suhu3">celciusToKelvin</a><p>
+        
+        <form action="/suhu">
+            Masukkan Suhu Awal<br>
+        <input type="text" name="suhu" autocomplete="off" autofocus><br>
+        
+        <p><button type="submit">Send</button></p>
+        </form>
+        
+        <p>*********************************************</p>
+        <div>
+            <h1>Konversi Berat</h1>
+        </div>
+        
+        <p></p>
+        <form action="/konversi">
+            Masukkan Berat Awal<br>
+            <input type="text" name="nilai">
+            <p>
+                <button type="submit">Submit</button>
+            </p>
+        </form>
+        
         <!-- Versi Inputan -->
         <hr>
-        <h2>Celcius => Fahreinheit || Fahreinheit => Celcius</h2>
+        <h3>Celcius => Fahreinheit || Fahreinheit => Celcius</h3>
         <form action="/Fahreinheit">
             Masukkan Suhu Awal Celcius<br>
-        <input type="number" name="suhu"><br>
+        <input type="text" name="suhu"><br>
         Masukkan Suhu Fahrenheit<br>
-        <input type="number" name="data"><br>
+        <input type="text" name="data"><br>
        
         <button type="submit"> Send</button>
         </form>
         
         <hr>
-        <h2>Celcius => Reamur || Reamur => Celcius</h2>
+        <h3>Celcius => Reamur || Reamur => Celcius</h3>
         <form action="/reamur">
             Masukkan Suhu Awal Celcius<br>
-        <input type="number" name="suhu"><br>
+        <input type="text" name="suhu"><br>
         Masukkan Suhu Reamur<br>
-        <input type="number" name="data"><br>
+        <input type="text" name="data"><br>
         
         <button type="submit"> Send</button>
         </form>
         
         <hr>
-        <h2>Celcius => Kelvin</h2>
+        <h3>Celcius => Kelvin</h3>
         <form action="/kelvin">
              Masukkan Suhu Awal<br>
-        <input type="number" name="data"><br>
+        <input type="text" name="data"><br>
         
         <button type="submit"> Send</button>
         </form>
+        
         <!-- Akhir Versi Inputan -->
         
-        <hr>
-        <h2>Konversi All Suhu</h2>
-        <form action="/suhu">
-            Masukkan Suhu Awal<br>
-        <input type="number" name="suhu"><br>
         
-        <button type="submit">Send</button>
-        </form>
     </body>
 </html>
